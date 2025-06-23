@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { fetchEpisodes } from "@/lib/listenNotes";
 import EpisodeCard, { PodcastEpisode } from "./components/EpisodeCard";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export default function Home() {
   const [episodes, setEpisodes] = useState<PodcastEpisode[]>([]);
@@ -36,7 +37,12 @@ export default function Home() {
   return (
     <div className="p-6">
       {loading ? (
-        <p>Loading...</p>
+        <span className="flex flex-col items-center justify-center text-lg text-gray-600 dark:text-gray-300 shadow w-fit mx-auto p-6 rounded-2xl">
+          <span className=" animate-spin">
+            <AiOutlineLoading3Quarters size={28} />
+          </span>
+          <span className="mt-2">Fetching...</span>
+        </span>
       ) : (
         <div className="grid mb-8 rounded-lg dark:border-gray-700 md:mb-12 md:grid-cols-4 bg-white dark:bg-gray-800">
           {episodes.map((ep) => (

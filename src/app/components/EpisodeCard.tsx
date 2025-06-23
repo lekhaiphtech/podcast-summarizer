@@ -86,14 +86,16 @@ const EpisodeCard: React.FC<Props> = ({
       <Badge variant="secondary" className="my-1">
         {episode?.podcast?.publisher_original}
       </Badge>
-
       <p className="text-sm text-gray-400 mb-2"></p>
       <div
         className="text-sm mb-2 line-clamp-2 prose prose-sm dark:prose-invert text-gray-500"
         dangerouslySetInnerHTML={{ __html: episode.description_original || "" }}
       />
+
       <Button
-        onClick={() => (!summarized || !summary) && handleSummarize}
+        onClick={() => {
+          if (!summarized || !summary) handleSummarize();
+        }}
         disabled={loading}
         size="sm"
         variant="secondary"
