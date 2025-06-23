@@ -49,7 +49,7 @@ export default function Home() {
             <EpisodeCard
               key={ep.id}
               episode={ep}
-              summarized={summaryInfo.summarizedIds.includes(ep.id)}
+              summarized={summaryInfo?.summarizedIds?.includes(ep.id)}
               existingSummary={summaryInfo.summaries[ep.id]}
             />
           ))}

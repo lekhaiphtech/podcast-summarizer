@@ -17,7 +17,7 @@ const Header = () => {
             Outlever
           </Link>
           <div className="flex md:order-2 space-x-3 rtl:space-x-reverse">
-            <Link href="/create-listing">
+            <Link href="/">
               <Button variant="link">Pod Cast</Button>
             </Link>
           </div>
